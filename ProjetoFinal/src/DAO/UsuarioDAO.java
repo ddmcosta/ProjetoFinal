@@ -10,7 +10,7 @@ public class UsuarioDAO {
 	
 	public void criarUsuario(Usuario usuario)	{
 		
-		String dados = "INSERT INTRO  usuarios(id,nome,email,endereco,cpf,telefone) VALUES (?,?,?,?,?,?)";
+		String dados = "INSERT INTO  clientes(nome,email,endereco,cpf,telefone,senha) VALUES (?,?,?,?,?,?)";
 		
 		Connection conex = null;
 		PreparedStatement pstm = null;
@@ -19,12 +19,13 @@ public class UsuarioDAO {
 		conex = ConnectionFactory.createConnectionToMySQL();
 		pstm = (PreparedStatement) conex.prepareStatement(dados);
 		
-		pstm.setInt(1, usuario.getId());
-		pstm.setString(2, usuario.getNome());
-		pstm.setString(3, usuario.getEmail());
-		pstm.setString(4, usuario.getEndereço());
-		pstm.setInt(5, usuario.getCpf());
-		pstm.setInt(6, usuario.getTelefone());
+		
+		pstm.setString(1, usuario.getNome());
+		pstm.setString(2, usuario.getEmail());
+		pstm.setString(3, usuario.getEndereço());
+		pstm.setInt(4, usuario.getCpf());
+		pstm.setInt(5, usuario.getTelefone());
+		pstm.setInt(6, usuario.getSenha());
 		
 		pstm.execute();
 		
