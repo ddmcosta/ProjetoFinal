@@ -10,7 +10,7 @@ public class UsuarioDAO {
 	
 	public void criarUsuario(Usuario usuario)	{
 		
-		String dados = "INSERT INTRO  usuarios(id,nome,email,endereco,cpf,telefone)VALUES(?,?,?,?,?,?)";
+		String dados = "INSERT INTRO  usuarios(id,nome,email,endereco,cpf,telefone) VALUES (?,?,?,?,?,?)";
 		
 		Connection conex = null;
 		PreparedStatement pstm = null;
@@ -52,4 +52,3 @@ public class UsuarioDAO {
 		}
 	}
 }
-

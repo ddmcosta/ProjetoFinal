@@ -54,7 +54,4 @@ public class Usuario {
 	public void setSenha(int senha) {
 		this.senha = senha;
 	}
-	
-	
-
 }
