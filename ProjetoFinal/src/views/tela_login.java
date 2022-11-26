@@ -49,7 +49,7 @@ public class tela_login extends JFrame {
 	 */
 	public tela_login() {
 		setIconImage(Toolkit.getDefaultToolkit().getImage("C:\\Users\\Usuario\\Desktop\\images.png"));
-		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 		setTitle("ForTec - Assistência Técnica");
 		setAlwaysOnTop(true);
 		setBounds(100, 100, 450, 301);
@@ -121,6 +121,7 @@ public class tela_login extends JFrame {
 			public void actionPerformed(ActionEvent e) {
 				
 				tela_cadastro telaCadastro = new tela_cadastro();
+				dispose();
 				telaCadastro.setVisible(true);
 			}
 		});

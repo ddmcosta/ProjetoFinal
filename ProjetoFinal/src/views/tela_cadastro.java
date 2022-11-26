@@ -7,6 +7,7 @@ import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 
 import Factory.ConnectionFactory;
+import Modelo.Usuario;
 
 import javax.swing.JLabel;
 import java.awt.Font;
@@ -27,8 +28,6 @@ public class tela_cadastro extends JFrame {
 	private JTextField campo_telefone;
 	private JTextField campo_endereço;
 	private JPanel contentPane;
-	private JTextField campo_login_de_acesso;
-	private JTextField campo_de_login;
 
 	/**
 	 * Launch the application.
@@ -53,7 +52,7 @@ public class tela_cadastro extends JFrame {
 		setIconImage(Toolkit.getDefaultToolkit().getImage("C:\\Users\\Usuario\\Desktop\\images.png"));
 		setType(Type.POPUP);
 		setTitle("ForcTec - Assistência Técnica");
-		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 		setBounds(100, 100, 611, 306);
 		contentPane = new JPanel();
 		contentPane.setToolTipText("");
@@ -106,27 +105,32 @@ public class tela_cadastro extends JFrame {
 		botao_cadastrar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				
-				try { 
-					Connection connection = new ConnectionFactory().createConnectionToMySQL();
-					String sql = "insert into usuario(id, nome, cpf, endereco, telefone, email, senha) values (' ?', '?', '?', '?', '?', '?', '?')";
-					PreparedStatement statement = connection.prepareStatement(sql);
-					statement.execute();
-					
-				} catch (Exception e1) {
-					// TODO Auto-generated catch block
-					e1.printStackTrace();
-				}
-		
-				finally {
-					
-				
-				}
+				Usuario usuario = new Usuario();
+				usuario.setNome(campo_nome.getText());
+			    System.out.println(usuario.getNome());
+			    
+			    usuario.setCpf(Integer.parseInt(campo_cpf.getText()));
+			    System.out.println(usuario.getCpf());
+			    
+			    usuario.setEmail(campo_nome.getText());
+			    System.out.println(usuario.getEmail());
+			    
+			    usuario.setTelefone(Integer.parseInt(campo_telefone.getText()));
+			    System.out.println(usuario.getTelefone());
+			    
+			    usuario.setEndereço(campo_endereço.getText());
+			    System.out.println(usuario.getEndereço());
+			    
+			    
+				//usuario.getNome(campo_nome);
 				tela_login telaLogin = new tela_login();
+				dispose();
 				telaLogin.setVisible(true);
+				
 			}
 		});
 		botao_cadastrar.setFont(new Font("Tahoma", Font.PLAIN, 14));
-		botao_cadastrar.setBounds(364, 164, 160, 49);
+		botao_cadastrar.setBounds(368, 109, 160, 49);
 		contentPane.add(botao_cadastrar);
 		
 		campo_nome = new JTextField();
@@ -143,25 +147,6 @@ public class tela_cadastro extends JFrame {
 		campo_endereço.setBounds(66, 195, 239, 25);
 		contentPane.add(campo_endereço);
 		campo_endereço.setColumns(10);
-		
-		JLabel login_de_acesso = new JLabel("Seu login de acesso:");
-		login_de_acesso.setToolTipText("");
-		login_de_acesso.setBounds(287, 64, 122, 14);
-		contentPane.add(login_de_acesso);
-		
-		campo_login_de_acesso = new JTextField();
-		campo_login_de_acesso.setBounds(412, 61, 160, 20);
-		contentPane.add(campo_login_de_acesso);
-		campo_login_de_acesso.setColumns(10);
-		
-		JLabel senha_de_login = new JLabel("Senha de login:");
-		senha_de_login.setBounds(287, 95, 98, 14);
-		contentPane.add(senha_de_login);
-		
-		campo_de_login = new JTextField();
-		campo_de_login.setBounds(412, 92, 160, 20);
-		contentPane.add(campo_de_login);
-		campo_de_login.setColumns(10);
 	}
 }
 
