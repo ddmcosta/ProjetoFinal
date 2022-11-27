@@ -106,10 +106,39 @@ public class tela_login extends JFrame {
 		JButton botao_logar = new JButton("Logar");
 		botao_logar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+
+				try{
+			Connection con = createConnectionToMySQL();
+
+			
+			String sql = "select *fom dados senha where cliente =? and senha = ? ";
+			
+			
+			PreparedStatement stmt = con.prepareStatement(sql);
+			stmt.setString(1,campo_nome.getText());
+			stmt.setString(2, new String(campo_senha.getPassword()));
+			
+			Resultset rs = stmt.executeQuery();
+			
+			if(rs.next()) {
 				
-				tela_produto telaProduto = new tela_produto();
-				telaProduto.setVisible(true);
+				JOptionPane.showMessageDialog(null , "Usuario cadastrado");
+
+			}else {
+			
+				JOptionPane.showMessageDialog(null , "Usuario nao cadastrado");
+
 			}
+			stmt.close();
+			con.close();
+
+				} catch(SQLException e) {
+					e.printStackTrace();
+				
+			}
+			tela_produto telaProduto = new tela_produto();
+				telaProduto.setVisible(true);
+		}
 		});
 		botao_logar.setForeground(new Color(0, 0, 0));
 		botao_logar.setFont(new Font("Arial", Font.PLAIN, 14));
