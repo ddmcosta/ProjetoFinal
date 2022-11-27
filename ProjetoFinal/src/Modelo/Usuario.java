@@ -4,9 +4,9 @@ public class Usuario {
 	
 	private int id;
 	private String nome;
-	private int cpf;
+	private long cpf;
 	private String endereço;
-	private int telefone;
+	private long telefone;
 	private String email;
 	private int senha;
 	
@@ -24,10 +24,10 @@ public class Usuario {
 	public void setNome(String nome) {
 		this.nome = nome;
 	}
-	public int getCpf() {
+	public long getCpf() {
 		return cpf;
 	}
-	public void setCpf(int cpf) {
+	public void setCpf(long cpf) {
 		this.cpf = cpf;
 	}
 	public String getEndereço() {
@@ -36,10 +36,10 @@ public class Usuario {
 	public void setEndereço(String endereço) {
 		this.endereço = endereço;
 	}
-	public int getTelefone() {
+	public long getTelefone() {
 		return telefone;
 	}
-	public void setTelefone(int telefone) {
+	public void setTelefone(long telefone) {
 		this.telefone = telefone;
 	}
 	public String getEmail() {

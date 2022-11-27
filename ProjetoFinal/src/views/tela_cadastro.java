@@ -109,13 +109,13 @@ public class tela_cadastro extends JFrame {
 				usuario.setNome(campo_nome.getText());
 			    System.out.println(usuario.getNome());
 			    
-			    usuario.setCpf(Integer.parseInt(campo_cpf.getText()));
+			    usuario.setCpf(Long.parseLong(campo_cpf.getText()));
 			    System.out.println(usuario.getCpf());
 			    
-			    usuario.setEmail(campo_nome.getText());
+			    usuario.setEmail(campo_email.getText());
 			    System.out.println(usuario.getEmail());
 			    
-			    usuario.setTelefone(Integer.parseInt(campo_telefone.getText()));
+			    usuario.setTelefone(Long.parseLong(campo_telefone.getText()));
 			    System.out.println(usuario.getTelefone());
 			    
 			    usuario.setEndereço(campo_endereço.getText());
