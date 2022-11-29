@@ -6,6 +6,7 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 
+import DAO.UsuarioDAO;
 import Factory.ConnectionFactory;
 import Modelo.Usuario;
 
@@ -20,6 +21,7 @@ import java.awt.event.ActionListener;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.awt.event.ActionEvent;
+import javax.swing.JPasswordField;
 
 public class tela_cadastro extends JFrame {
 	private JTextField campo_cpf;
@@ -28,6 +30,7 @@ public class tela_cadastro extends JFrame {
 	private JTextField campo_telefone;
 	private JTextField campo_endereço;
 	private JPanel contentPane;
+	private JPasswordField campo_login;
 
 	/**
 	 * Launch the application.
@@ -121,6 +124,9 @@ public class tela_cadastro extends JFrame {
 			    usuario.setEndereço(campo_endereço.getText());
 			    System.out.println(usuario.getEndereço());
 			    
+			    usuario.setSenha(campo_login.getText());
+			    UsuarioDAO usuarioDAO = new UsuarioDAO();
+			    usuarioDAO.criarUsuario(usuario);
 			    
 				//usuario.getNome(campo_nome);
 				tela_login telaLogin = new tela_login();
@@ -130,7 +136,7 @@ public class tela_cadastro extends JFrame {
 			}
 		});
 		botao_cadastrar.setFont(new Font("Tahoma", Font.PLAIN, 14));
-		botao_cadastrar.setBounds(368, 109, 160, 49);
+		botao_cadastrar.setBounds(362, 181, 160, 49);
 		contentPane.add(botao_cadastrar);
 		
 		campo_nome = new JTextField();
@@ -147,6 +153,14 @@ public class tela_cadastro extends JFrame {
 		campo_endereço.setBounds(66, 195, 239, 25);
 		contentPane.add(campo_endereço);
 		campo_endereço.setColumns(10);
+		
+		JLabel senha_de_login = new JLabel("Senha de Login:");
+		senha_de_login.setBounds(271, 64, 92, 14);
+		contentPane.add(senha_de_login);
+		
+		campo_login = new JPasswordField();
+		campo_login.setBounds(362, 61, 147, 23);
+		contentPane.add(campo_login);
 	}
 }
 

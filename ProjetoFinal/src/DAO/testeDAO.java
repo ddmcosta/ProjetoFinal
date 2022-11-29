@@ -16,7 +16,7 @@ public class testeDAO {
 		usuario.setEndereço("rua setenta");
 		usuario.setCpf(12345678);
 		usuario.setTelefone(85879034);
-		usuario.setSenha(45678);
+		usuario.setSenha("DFDFF");
 		
 		usuarioDAO.criarUsuario(usuario);
 		

@@ -5,6 +5,9 @@ import java.awt.EventQueue;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
+
+import Modelo.Produto;
+
 import javax.swing.JLabel;
 import javax.swing.SwingConstants;
 import java.awt.Toolkit;
@@ -14,11 +17,11 @@ import javax.swing.JButton;
 import javax.swing.ImageIcon;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
+import javax.swing.JRadioButton;
 
 public class tela_produto extends JFrame {
 
 	private JPanel contentPane;
-	private JTextField campo_nome_do_produto;
 	private JTextField campo_marca_do_produto;
 	private JTextField campo_modelo_do_produto;
 
@@ -45,7 +48,7 @@ public class tela_produto extends JFrame {
 		setFont(new Font("Dubai", Font.BOLD, 12));
 		setIconImage(Toolkit.getDefaultToolkit().getImage("C:\\Users\\Usuario\\Desktop\\images.png"));
 		setTitle("ForcTec - Assistência Técnica");
-		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 		setBounds(100, 100, 451, 316);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
@@ -65,11 +68,6 @@ public class tela_produto extends JFrame {
 		lblNewLabel_1.setBounds(10, 47, 325, 24);
 		contentPane.add(lblNewLabel_1);
 		
-		campo_nome_do_produto = new JTextField();
-		campo_nome_do_produto.setBounds(77, 111, 295, 20);
-		contentPane.add(campo_nome_do_produto);
-		campo_nome_do_produto.setColumns(10);
-		
 		campo_marca_do_produto = new JTextField();
 		campo_marca_do_produto.setBounds(77, 142, 295, 20);
 		contentPane.add(campo_marca_do_produto);
@@ -80,9 +78,9 @@ public class tela_produto extends JFrame {
 		contentPane.add(campo_modelo_do_produto);
 		campo_modelo_do_produto.setColumns(10);
 		
-		JLabel nome_do_produto = new JLabel("Nome:");
-		nome_do_produto.setBounds(24, 114, 46, 14);
-		contentPane.add(nome_do_produto);
+		JLabel tipo_do_produto = new JLabel("Tipo:");
+		tipo_do_produto.setBounds(24, 114, 46, 14);
+		contentPane.add(tipo_do_produto);
 		
 		JLabel marca_do_produto = new JLabel("Marca:");
 		marca_do_produto.setBounds(24, 145, 46, 14);
@@ -96,12 +94,36 @@ public class tela_produto extends JFrame {
 		botao_proximo.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				
+			
+				
+			Produto produto = new Produto();
+			
+			produto.setNome(tipo_do_produto.getText());
+			
+			
+			produto.setMarca(campo_marca_do_produto.getText());
+		
+			
+			produto.setModelo(campo_modelo_do_produto.getText());
+			
+			
+			
+				
 				tela_servicos telaServicos = new tela_servicos();
+				dispose();
 				telaServicos.setVisible(true);
 			}
 		});
 		botao_proximo.setFont(new Font("Tahoma", Font.PLAIN, 14));
 		botao_proximo.setBounds(150, 220, 133, 46);
 		contentPane.add(botao_proximo);
+		
+		JRadioButton radio_computador = new JRadioButton("Computador");
+		radio_computador.setBounds(77, 110, 101, 23);
+		contentPane.add(radio_computador);
+		
+		JRadioButton radio_notebook = new JRadioButton("Notebook");
+		radio_notebook.setBounds(199, 110, 84, 23);
+		contentPane.add(radio_notebook);
 	}
 }

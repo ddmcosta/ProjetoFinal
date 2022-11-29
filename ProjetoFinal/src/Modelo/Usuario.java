@@ -8,7 +8,7 @@ public class Usuario {
 	private String endereço;
 	private long telefone;
 	private String email;
-	private int senha;
+	private String senha;
 	
 	
 	
@@ -48,10 +48,10 @@ public class Usuario {
 	public void setEmail(String email) {
 		this.email = email;
 	}
-	public int getSenha() {
+	public String getSenha() {
 		return senha;
 	}
-	public void setSenha(int senha) {
-		this.senha = senha;
+	public void setSenha(String i) {
+		this.senha = i;
 	}
 }

@@ -25,7 +25,7 @@ public class UsuarioDAO {
 		pstm.setString(3, usuario.getEndereço());
 		pstm.setLong(4, usuario.getCpf());
 		pstm.setLong(5, usuario.getTelefone());
-		pstm.setInt(6, usuario.getSenha());
+		pstm.setString(6, usuario.getSenha());
 		
 		pstm.execute();
 		

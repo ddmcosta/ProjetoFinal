@@ -17,6 +17,8 @@ import javax.swing.JEditorPane;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 import javax.swing.JTextField;
+import java.awt.SystemColor;
+import java.awt.Color;
 
 public class tela_pedido extends JFrame {
 
@@ -44,7 +46,7 @@ public class tela_pedido extends JFrame {
 	public tela_pedido() {
 		setIconImage(Toolkit.getDefaultToolkit().getImage("C:\\Users\\Usuario\\Desktop\\images.png"));
 		setTitle("ForcTec - Assistência Técnica");
-		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 		setBounds(100, 100, 450, 300);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
@@ -87,11 +89,6 @@ public class tela_pedido extends JFrame {
 		botao_voltar.setBounds(30, 214, 127, 36);
 		contentPane.add(botao_voltar);
 		
-		JLabel id = new JLabel("id:");
-		id.setHorizontalAlignment(SwingConstants.LEFT);
-		id.setBounds(10, 74, 64, 14);
-		contentPane.add(id);
-		
 		JLabel lblNewLabel_3 = new JLabel("");
 		lblNewLabel_3.setHorizontalAlignment(SwingConstants.LEFT);
 		lblNewLabel_3.setBounds(53, 63, 89, 14);
@@ -99,31 +96,21 @@ public class tela_pedido extends JFrame {
 		
 		JLabel valor_total = new JLabel("Valor total:");
 		valor_total.setHorizontalAlignment(SwingConstants.LEFT);
-		valor_total.setBounds(10, 99, 64, 14);
+		valor_total.setBounds(10, 100, 64, 14);
 		contentPane.add(valor_total);
 		
 		JLabel prazo_de_entrega = new JLabel("Prazo de entrega:");
-		prazo_de_entrega.setBounds(10, 121, 101, 14);
+		prazo_de_entrega.setBounds(10, 138, 101, 14);
 		contentPane.add(prazo_de_entrega);
 		
-		JLabel observacao = new JLabel("Observação:");
-		observacao.setBounds(10, 146, 72, 14);
-		contentPane.add(observacao);
-		
-		JTextPane campo_observacao_texto = new JTextPane();
-		campo_observacao_texto.setBounds(30, 163, 326, 45);
-		contentPane.add(campo_observacao_texto);
-		
-		JTextPane campo_id_texto = new JTextPane();
-		campo_id_texto.setBounds(117, 69, 127, 19);
-		contentPane.add(campo_id_texto);
-		
 		JTextPane campo_valor_total_texto = new JTextPane();
-		campo_valor_total_texto.setBounds(117, 94, 168, 19);
+		campo_valor_total_texto.setBackground(new Color(240, 240, 240));
+		campo_valor_total_texto.setBounds(75, 95, 180, 19);
 		contentPane.add(campo_valor_total_texto);
 		
 		JTextPane campo_prazo_de_entrega_texto = new JTextPane();
-		campo_prazo_de_entrega_texto.setBounds(117, 121, 207, 20);
+		campo_prazo_de_entrega_texto.setBackground(new Color(240, 240, 240));
+		campo_prazo_de_entrega_texto.setBounds(112, 138, 180, 20);
 		contentPane.add(campo_prazo_de_entrega_texto);
 	}
 }

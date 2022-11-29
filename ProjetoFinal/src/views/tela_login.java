@@ -5,6 +5,11 @@ import java.awt.EventQueue;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
+
+import com.mysql.cj.protocol.Resultset;
+
+import Factory.ConnectionFactory;
+
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.SwingConstants;
@@ -17,6 +22,10 @@ import javax.swing.JDesktopPane;
 import javax.sql.DataSource;
 import javax.swing.DropMode;
 import java.awt.event.ActionListener;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.awt.event.ActionEvent;
 import java.awt.Window.Type;
 import java.awt.Dialog.ModalExclusionType;
@@ -107,37 +116,17 @@ public class tela_login extends JFrame {
 		botao_logar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 
-				try{
-			Connection con = createConnectionToMySQL();
-
-			
-			String sql = "select *fom dados senha where cliente =? and senha = ? ";
-			
-			
-			PreparedStatement stmt = con.prepareStatement(sql);
-			stmt.setString(1,campo_nome.getText());
-			stmt.setString(2, new String(campo_senha.getPassword()));
-			
-			Resultset rs = stmt.executeQuery();
-			
-			if(rs.next()) {
 				
-				JOptionPane.showMessageDialog(null , "Usuario cadastrado");
-
-			}else {
+				if(campo_login.getText().equals("admin")  && campo_senha.getText().equals("123")) {
+					
+					tela_produto telaProduto = new tela_produto();
+					dispose();
+					telaProduto.setVisible(true);
+				}else {
 			
-				JOptionPane.showMessageDialog(null , "Usuario nao cadastrado");
-
-			}
-			stmt.close();
-			con.close();
-
-				} catch(SQLException e) {
-					e.printStackTrace();
-				
-			}
-			tela_produto telaProduto = new tela_produto();
-				telaProduto.setVisible(true);
+					JOptionPane.showMessageDialog(null, "Usuario nao cadastrado");
+				}
+			
 		}
 		});
 		botao_logar.setForeground(new Color(0, 0, 0));
