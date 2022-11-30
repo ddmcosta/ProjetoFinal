@@ -69,24 +69,26 @@ public class tela_servicos extends JFrame {
 		lblNewLabel_1.setBounds(10, 51, 329, 23);
 		contentPane.add(lblNewLabel_1);
 		
-		JCheckBox box_limpeza = new JCheckBox("Limpeza R$:50.0");
+		Servico servico = new Servico();
+		JCheckBox box_limpeza = new JCheckBox(servico.getSERVICO()[0] +" R$: " + servico.getVALORES()[0]);
 		box_limpeza.setHorizontalAlignment(SwingConstants.LEFT);
-		box_limpeza.setBounds(23, 98, 140, 23);
+		box_limpeza.setBounds(23, 98, 155, 23);
 		contentPane.add(box_limpeza);
+		//"Limpeza R$:150,00"
 		
-		JCheckBox box_troca_de_hd = new JCheckBox("Troca de HD R$300.0");
+		JCheckBox box_troca_de_hd = new JCheckBox(servico.getSERVICO()[3] +" R$ " + servico.getVALORES()[3]);
 		box_troca_de_hd.setHorizontalAlignment(SwingConstants.LEFT);
-		box_troca_de_hd.setBounds(23, 141, 155, 23);
+		box_troca_de_hd.setBounds(23, 141, 171, 23);
 		contentPane.add(box_troca_de_hd);
 		
-		JCheckBox box_formatacao = new JCheckBox("Formatação R$:150.0");
+		JCheckBox box_formatacao = new JCheckBox(servico.getSERVICO()[1] +" R$ " + servico.getVALORES()[1]);
 		box_formatacao.setHorizontalAlignment(SwingConstants.LEFT);
-		box_formatacao.setBounds(192, 98, 155, 23);
+		box_formatacao.setBounds(192, 98, 181, 23);
 		contentPane.add(box_formatacao);
 		
-		JCheckBox box_troca_de_tela = new JCheckBox("Troca de Tela R$200.0");
+		JCheckBox box_troca_de_tela = new JCheckBox(servico.getSERVICO()[2] +" R$: " + servico.getVALORES()[2]);
 		box_troca_de_tela.setHorizontalAlignment(SwingConstants.LEFT);
-		box_troca_de_tela.setBounds(192, 141, 166, 23);
+		box_troca_de_tela.setBounds(192, 141, 181, 23);
 		contentPane.add(box_troca_de_tela);
 		
 		JButton botao_voltar_servicos = new JButton("Voltar");
@@ -104,8 +106,11 @@ public class tela_servicos extends JFrame {
 		JButton botao_proximo = new JButton("Próximo");
 		botao_proximo.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				if(box_limpeza.isSelected()) {
+					//box_limpeza.getText().toString();
+				}
 				
-				
+				System.out.println();
 				tela_pedido telaPedido = new tela_pedido();
 				dispose();
 				telaPedido.setVisible(true);
@@ -115,4 +120,5 @@ public class tela_servicos extends JFrame {
 		botao_proximo.setBounds(222, 197, 117, 35);
 		contentPane.add(botao_proximo);
 	}
+	
 }

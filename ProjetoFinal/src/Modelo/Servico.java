@@ -2,36 +2,33 @@ package Modelo;
 
 public class Servico {
 
-	private String limpeza;
-	private String Formatacao;
-	private String trocaDeHd;
-	private String trocaDeTela;
+	private String[] SERVICO = {"Limpeza", 
+			"Troca de Tela", 
+			"Formatacao", 
+			"Troca de HD", 
+			 };
 	
-	public String getLimpeza() {
-		return limpeza;
-	}
-	public void setLimpeza(String limpeza) {
-		this.limpeza = limpeza;
-	}
-	public String getFormatacao() {
-		return Formatacao;
-	}
-	public void setFormatacao(String formatacao) {
-		Formatacao = formatacao;
-	}
-	public String getTrocaDeHd() {
-		return trocaDeHd;
-	}
-	public void setTrocaDeHd(String trocaDeHd) {
-		this.trocaDeHd = trocaDeHd;
-	}
-	public String getTrocaDeTela() {
-		return trocaDeTela;
-	}
-	public void setTrocaDeTela(String trocaDeTela) {
-		this.trocaDeTela = trocaDeTela;
-	}
-	
-	
+	Double[] VALORES = {50.00,
+			 200.00,
+			 150.00, 
+		     300.00,
+		  
+		
+	};
 
+	public String[] getSERVICO() {
+		return this.SERVICO;
+	}
+
+	public void setSERVICO(String[] SERVICO) {
+		this.SERVICO = SERVICO;
+	}
+
+	public Double[] getVALORES() {
+		return VALORES;
+	}
+
+	public void setVALORES(Double[] VALORES) {
+		this.VALORES = VALORES;
+	}
 }
