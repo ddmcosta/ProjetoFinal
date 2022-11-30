@@ -25,6 +25,7 @@ import java.sql.PreparedStatement;
 import java.awt.event.ActionEvent;
 import javax.swing.JPasswordField;
 import javax.swing.JCheckBoxMenuItem;
+import javax.swing.JPasswordField;
 
 public class tela_cadastro extends JFrame {
 	private JTextField campo_cpf;
@@ -158,11 +159,11 @@ public class tela_cadastro extends JFrame {
 		campo_endereço.setColumns(10);
 		
 		JLabel senha_de_login = new JLabel("Senha de Login:");
-		senha_de_login.setBounds(271, 95, 92, 14);
+		senha_de_login.setBounds(271, 64, 92, 14);
 		contentPane.add(senha_de_login);
 		
 		campo_login = new JPasswordField();
-		campo_login.setBounds(362, 91, 195, 23);
+		campo_login.setBounds(362, 61, 147, 23);
 		contentPane.add(campo_login);
 	}
 }
