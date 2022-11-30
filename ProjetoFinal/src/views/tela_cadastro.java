@@ -6,10 +6,13 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 
+import DAO.UsuarioDAO;
 import Factory.ConnectionFactory;
 import Modelo.Usuario;
 
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
+
 import java.awt.Font;
 import javax.swing.JTextField;
 import javax.swing.JButton;
@@ -20,6 +23,8 @@ import java.awt.event.ActionListener;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.awt.event.ActionEvent;
+import javax.swing.JPasswordField;
+import javax.swing.JCheckBoxMenuItem;
 
 public class tela_cadastro extends JFrame {
 	private JTextField campo_cpf;
@@ -28,6 +33,7 @@ public class tela_cadastro extends JFrame {
 	private JTextField campo_telefone;
 	private JTextField campo_endereço;
 	private JPanel contentPane;
+	private JPasswordField campo_login;
 
 	/**
 	 * Launch the application.
@@ -97,7 +103,7 @@ public class tela_cadastro extends JFrame {
 		campo_cpf.setColumns(10);
 		
 		campo_email = new JTextField();
-		campo_email.setBounds(66, 123, 239, 25);
+		campo_email.setBounds(66, 123, 195, 25);
 		contentPane.add(campo_email);
 		campo_email.setColumns(10);
 		
@@ -109,28 +115,31 @@ public class tela_cadastro extends JFrame {
 				usuario.setNome(campo_nome.getText());
 			    System.out.println(usuario.getNome());
 			    
-			    usuario.setCpf(Integer.parseInt(campo_cpf.getText()));
+			    usuario.setCpf(Long.parseLong(campo_cpf.getText()));
 			    System.out.println(usuario.getCpf());
 			    
-			    usuario.setEmail(campo_nome.getText());
+			    usuario.setEmail(campo_email.getText());
 			    System.out.println(usuario.getEmail());
 			    
-			    usuario.setTelefone(Integer.parseInt(campo_telefone.getText()));
+			    usuario.setTelefone(Long.parseLong(campo_telefone.getText()));
 			    System.out.println(usuario.getTelefone());
 			    
 			    usuario.setEndereço(campo_endereço.getText());
 			    System.out.println(usuario.getEndereço());
 			    
+			    usuario.setSenha(campo_login.getText());
+			    UsuarioDAO usuarioDAO = new UsuarioDAO();
+			    usuarioDAO.criarUsuario(usuario);
 			    
-				//usuario.getNome(campo_nome);
-				tela_login telaLogin = new tela_login();
+			    //usuario.getNome(campo_nome);
+			    tela_login telaLogin = new tela_login();
 				dispose();
 				telaLogin.setVisible(true);
 				
 			}
 		});
 		botao_cadastrar.setFont(new Font("Tahoma", Font.PLAIN, 14));
-		botao_cadastrar.setBounds(368, 109, 160, 49);
+		botao_cadastrar.setBounds(323, 145, 160, 49);
 		contentPane.add(botao_cadastrar);
 		
 		campo_nome = new JTextField();
@@ -139,15 +148,21 @@ public class tela_cadastro extends JFrame {
 		campo_nome.setColumns(10);
 		
 		campo_telefone = new JTextField();
-		campo_telefone.setBounds(66, 159, 239, 25);
+		campo_telefone.setBounds(66, 159, 195, 25);
 		contentPane.add(campo_telefone);
 		campo_telefone.setColumns(10);
 		
 		campo_endereço = new JTextField();
-		campo_endereço.setBounds(66, 195, 239, 25);
+		campo_endereço.setBounds(66, 195, 195, 25);
 		contentPane.add(campo_endereço);
 		campo_endereço.setColumns(10);
+		
+		JLabel senha_de_login = new JLabel("Senha de Login:");
+		senha_de_login.setBounds(271, 95, 92, 14);
+		contentPane.add(senha_de_login);
+		
+		campo_login = new JPasswordField();
+		campo_login.setBounds(362, 91, 195, 23);
+		contentPane.add(campo_login);
 	}
 }
-
-

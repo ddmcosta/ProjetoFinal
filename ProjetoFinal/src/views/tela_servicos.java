@@ -5,8 +5,12 @@ import java.awt.EventQueue;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
+
+import Modelo.Servico;
+
 import java.awt.Toolkit;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JToggleButton;
 import javax.swing.JCheckBox;
 import javax.swing.JRadioButton;
@@ -46,7 +50,7 @@ public class tela_servicos extends JFrame {
 	public tela_servicos() {
 		setTitle("ForcTec - Assistência Técnica");
 		setIconImage(Toolkit.getDefaultToolkit().getImage("C:\\Users\\Usuario\\Desktop\\images.png"));
-		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 		setBounds(100, 100, 450, 300);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
@@ -65,24 +69,24 @@ public class tela_servicos extends JFrame {
 		lblNewLabel_1.setBounds(10, 51, 329, 23);
 		contentPane.add(lblNewLabel_1);
 		
-		JCheckBox box_limpeza = new JCheckBox("01 - Limpeza");
+		JCheckBox box_limpeza = new JCheckBox("Limpeza R$:50.0");
 		box_limpeza.setHorizontalAlignment(SwingConstants.LEFT);
-		box_limpeza.setBounds(23, 98, 97, 23);
+		box_limpeza.setBounds(23, 98, 140, 23);
 		contentPane.add(box_limpeza);
 		
-		JCheckBox box_troca_de_hd = new JCheckBox("03 - Troca de HD");
+		JCheckBox box_troca_de_hd = new JCheckBox("Troca de HD R$300.0");
 		box_troca_de_hd.setHorizontalAlignment(SwingConstants.LEFT);
-		box_troca_de_hd.setBounds(23, 141, 125, 23);
+		box_troca_de_hd.setBounds(23, 141, 155, 23);
 		contentPane.add(box_troca_de_hd);
 		
-		JCheckBox box_formatacao = new JCheckBox("02 - Formatação");
+		JCheckBox box_formatacao = new JCheckBox("Formatação R$:150.0");
 		box_formatacao.setHorizontalAlignment(SwingConstants.LEFT);
-		box_formatacao.setBounds(143, 98, 117, 23);
+		box_formatacao.setBounds(192, 98, 155, 23);
 		contentPane.add(box_formatacao);
 		
-		JCheckBox box_troca_de_tela = new JCheckBox("04 - Troca de Tela");
+		JCheckBox box_troca_de_tela = new JCheckBox("Troca de Tela R$200.0");
 		box_troca_de_tela.setHorizontalAlignment(SwingConstants.LEFT);
-		box_troca_de_tela.setBounds(150, 141, 132, 23);
+		box_troca_de_tela.setBounds(192, 141, 166, 23);
 		contentPane.add(box_troca_de_tela);
 		
 		JButton botao_voltar_servicos = new JButton("Voltar");
@@ -90,7 +94,7 @@ public class tela_servicos extends JFrame {
 		botao_voltar_servicos.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				
-				tela_produto telaProduto = new tela_produto();
+     			tela_produto telaProduto = new tela_produto();
 				telaProduto.setVisible(true);
 			}
 		});
@@ -101,7 +105,9 @@ public class tela_servicos extends JFrame {
 		botao_proximo.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				
+				
 				tela_pedido telaPedido = new tela_pedido();
+				dispose();
 				telaPedido.setVisible(true);
 			}
 		});

@@ -6,6 +6,7 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.SwingConstants;
 import java.awt.Toolkit;
 import javax.swing.ImageIcon;
@@ -17,6 +18,9 @@ import javax.swing.JEditorPane;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 import javax.swing.JTextField;
+import java.awt.SystemColor;
+import java.awt.Color;
+import java.awt.FlowLayout;
 
 public class tela_pedido extends JFrame {
 
@@ -44,36 +48,33 @@ public class tela_pedido extends JFrame {
 	public tela_pedido() {
 		setIconImage(Toolkit.getDefaultToolkit().getImage("C:\\Users\\Usuario\\Desktop\\images.png"));
 		setTitle("ForcTec - Assistência Técnica");
-		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 		setBounds(100, 100, 450, 300);
 		contentPane = new JPanel();
-		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 		
-		JLabel lblNewLabel = new JLabel("Até agora vimos que foi pedido os seguintes");
-		lblNewLabel.setFont(new Font("Century Schoolbook", Font.BOLD, 15));
-		lblNewLabel.setHorizontalAlignment(SwingConstants.LEFT);
-		lblNewLabel.setBounds(10, 11, 346, 19);
+		JLabel lblNewLabel = new JLabel("Solicitações feitas, finalizar?");
+		lblNewLabel.setFont(new Font("Century Schoolbook", Font.BOLD, 20));
+		lblNewLabel.setHorizontalAlignment(SwingConstants.CENTER);
+		lblNewLabel.setBounds(10, 11, 346, 25);
 		contentPane.add(lblNewLabel);
 		
-		JLabel lblNewLabel_1 = new JLabel("serviços. gostaria de finalizar?");
-		lblNewLabel_1.setFont(new Font("Century Schoolbook", Font.BOLD, 15));
-		lblNewLabel_1.setBounds(10, 33, 245, 19);
-		contentPane.add(lblNewLabel_1);
-		
-		JButton botao_confirmar = new JButton("Confirmar");
-		botao_confirmar.addActionListener(new ActionListener() {
+		JButton botao_finalizar = new JButton("Finalizar");
+		botao_finalizar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				
-				tela_finalizacao tela_finalizacao = new tela_finalizacao();
-				tela_finalizacao.setVisible(true);
+				JOptionPane.showMessageDialog(null, "Solicitação encaminhada! Entraremos em contato em breve.");
+				
+				tela_login tela_Login = new tela_login();
+				dispose();
+				tela_Login.setVisible(true);
 			}
 		});
-		botao_confirmar.setFont(new Font("Tahoma", Font.PLAIN, 13));
-		botao_confirmar.setBounds(204, 214, 127, 36);
-		contentPane.add(botao_confirmar);
+		botao_finalizar.setFont(new Font("Tahoma", Font.PLAIN, 13));
+		botao_finalizar.setBounds(204, 214, 127, 36);
+		contentPane.add(botao_finalizar);
 		
 		JButton botao_voltar = new JButton("Voltar");
 		botao_voltar.setFont(new Font("Tahoma", Font.PLAIN, 13));
@@ -87,43 +88,44 @@ public class tela_pedido extends JFrame {
 		botao_voltar.setBounds(30, 214, 127, 36);
 		contentPane.add(botao_voltar);
 		
-		JLabel id = new JLabel("id:");
-		id.setHorizontalAlignment(SwingConstants.LEFT);
-		id.setBounds(10, 74, 64, 14);
-		contentPane.add(id);
-		
-		JLabel lblNewLabel_3 = new JLabel("");
-		lblNewLabel_3.setHorizontalAlignment(SwingConstants.LEFT);
-		lblNewLabel_3.setBounds(53, 63, 89, 14);
-		contentPane.add(lblNewLabel_3);
-		
 		JLabel valor_total = new JLabel("Valor total:");
+		valor_total.setFont(new Font("Tahoma", Font.PLAIN, 14));
 		valor_total.setHorizontalAlignment(SwingConstants.LEFT);
-		valor_total.setBounds(10, 99, 64, 14);
+		valor_total.setBounds(10, 119, 89, 25);
 		contentPane.add(valor_total);
 		
 		JLabel prazo_de_entrega = new JLabel("Prazo de entrega:");
-		prazo_de_entrega.setBounds(10, 121, 101, 14);
+		prazo_de_entrega.setFont(new Font("Tahoma", Font.PLAIN, 14));
+		prazo_de_entrega.setBounds(10, 155, 119, 25);
 		contentPane.add(prazo_de_entrega);
 		
-		JLabel observacao = new JLabel("Observação:");
-		observacao.setBounds(10, 146, 72, 14);
-		contentPane.add(observacao);
+		JPanel panel_valor_total = new JPanel();
+		panel_valor_total.setBorder(null);
+		panel_valor_total.setBackground(new Color(240, 240, 240));
+		panel_valor_total.setBounds(84, 119, 340, 25);
+		contentPane.add(panel_valor_total);
 		
-		JTextPane campo_observacao_texto = new JTextPane();
-		campo_observacao_texto.setBounds(30, 163, 326, 45);
-		contentPane.add(campo_observacao_texto);
+		JPanel panel_prazo_de_entrega = new JPanel();
+		FlowLayout flowLayout = (FlowLayout) panel_prazo_de_entrega.getLayout();
+		panel_prazo_de_entrega.setBounds(125, 155, 299, 25);
+		contentPane.add(panel_prazo_de_entrega);
 		
-		JTextPane campo_id_texto = new JTextPane();
-		campo_id_texto.setBounds(117, 69, 127, 19);
-		contentPane.add(campo_id_texto);
+		JLabel lblNewLabel_1 = new JLabel("Produto:");
+		lblNewLabel_1.setFont(new Font("Tahoma", Font.PLAIN, 14));
+		lblNewLabel_1.setBounds(10, 47, 76, 25);
+		contentPane.add(lblNewLabel_1);
 		
-		JTextPane campo_valor_total_texto = new JTextPane();
-		campo_valor_total_texto.setBounds(117, 94, 168, 19);
-		contentPane.add(campo_valor_total_texto);
+		JLabel lblNewLabel_2 = new JLabel("Serviços:");
+		lblNewLabel_2.setFont(new Font("Tahoma", Font.PLAIN, 14));
+		lblNewLabel_2.setBounds(10, 83, 76, 25);
+		contentPane.add(lblNewLabel_2);
 		
-		JTextPane campo_prazo_de_entrega_texto = new JTextPane();
-		campo_prazo_de_entrega_texto.setBounds(117, 121, 207, 20);
-		contentPane.add(campo_prazo_de_entrega_texto);
+		JPanel panel = new JPanel();
+		panel.setBounds(74, 47, 350, 25);
+		contentPane.add(panel);
+		
+		JPanel panel_1 = new JPanel();
+		panel_1.setBounds(74, 83, 350, 25);
+		contentPane.add(panel_1);
 	}
 }
