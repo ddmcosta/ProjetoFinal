@@ -124,17 +124,29 @@ public class tela_pedido extends JFrame {
 		JLabel lblNewLabel_2 = new JLabel("Serviços:");
 		lblNewLabel_2.setFont(new Font("Tahoma", Font.PLAIN, 14));
 		lblNewLabel_2.setBounds(10, 83, 76, 25);
-		contentPane.add(lblNewLabel_2);}
+		contentPane.add(lblNewLabel_2);
 		
-        public void upadateValues(String value) {
+		JPanel panel_servicos = new JPanel();
+		panel_servicos.setBounds(84, 83, 340, 25);
+		contentPane.add(panel_servicos);
 		
+		JPanel panel_produto = new JPanel();
+		panel_produto.setBounds(84, 47, 340, 25);
+		contentPane.add(panel_produto);}
+	
+        public void printValues(String nomeProduto,String nomeServico) {
+		
+        	JLabel lblNewLabel_1 = new JLabel();
+    		lblNewLabel_1.setFont(new Font("Tahoma", Font.PLAIN, 14));
+    		lblNewLabel_1.setBounds(23, 63, 76, 25);
+    		contentPane.add(lblNewLabel_1);
+    		lblNewLabel_1.setText(nomeProduto);
+    		
 		JLabel lblNewLabel_2 = new JLabel();
-		
-		
 		lblNewLabel_2.setFont(new Font("Tahoma",Font.PLAIN,14));
 		lblNewLabel_2.setBounds(23, 98, 155, 23);
-		contentPane.add(lblNewLabel_2  );
-		lblNewLabel_2.setText(value);
+		contentPane.add(lblNewLabel_2);
+		lblNewLabel_2.setText(nomeServico);
 	
 		
 
@@ -150,7 +162,4 @@ public class tela_pedido extends JFrame {
 	
 		
 	}
-	}
-		
-
-
+}

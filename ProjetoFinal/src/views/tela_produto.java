@@ -14,10 +14,12 @@ import java.awt.Toolkit;
 import java.awt.Font;
 import javax.swing.JTextField;
 import javax.swing.JButton;
+import javax.swing.ButtonGroup;
 import javax.swing.ImageIcon;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 import javax.swing.JRadioButton;
+import javax.swing.JRadioButtonMenuItem;
 
 public class tela_produto extends JFrame {
 
@@ -90,17 +92,10 @@ public class tela_produto extends JFrame {
 		modelo_do_produto.setBounds(24, 174, 46, 14);
 		contentPane.add(modelo_do_produto);
 		
+		
+		
 		JButton botao_proximo = new JButton("Próximo");
-		botao_proximo.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				
-				tela_servicos telaServicos = new tela_servicos();
-				dispose();
-				telaServicos.setVisible(true);
-				
-			
-			}
-		});
+		
 		botao_proximo.setFont(new Font("Tahoma", Font.PLAIN, 14));
 		botao_proximo.setBounds(150, 220, 133, 46);
 		contentPane.add(botao_proximo);
@@ -109,8 +104,31 @@ public class tela_produto extends JFrame {
 		radio_computador.setBounds(77, 110, 101, 23);
 		contentPane.add(radio_computador);
 		
+		
 		JRadioButton radio_notebook = new JRadioButton("Notebook");
 		radio_notebook.setBounds(199, 110, 84, 23);
 		contentPane.add(radio_notebook);
+		
+		ButtonGroup grupoRadioButton = new ButtonGroup();
+		grupoRadioButton.add(radio_computador);
+		grupoRadioButton.add(radio_notebook);
+		botao_proximo.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				
+				tela_servicos telaServicos = new tela_servicos();
+				if(radio_computador.isSelected()) {
+					telaServicos.setNomeProduto(radio_computador.getText().toString());
+					System.out.println(telaServicos.getNomeProduto());
+				}else if(radio_notebook.isSelected()){
+					telaServicos.setNomeProduto(radio_notebook.getText().toString());
+					System.out.println(telaServicos.getNomeProduto());
+				}
+				dispose();
+				telaServicos.setVisible(true);
+				
+			
+			}
+		});
+
 	}
 }

@@ -27,6 +27,7 @@ import java.awt.event.ActionEvent;
 public class tela_servicos extends JFrame {
 
 	private JPanel contentPane;
+	private String nomeProduto;
 
 	/**
 	 * Launch the application.
@@ -108,8 +109,7 @@ public class tela_servicos extends JFrame {
 				
 				tela_pedido telaPedido = new tela_pedido();
 				
-				telaPedido.upadateValues(box_limpeza.getText().toString());
-			 
+				telaPedido.printValues(getNomeProduto(),box_limpeza.getText().toString());
 				dispose();
 				
 				telaPedido.setVisible(true);
@@ -119,6 +119,13 @@ public class tela_servicos extends JFrame {
 		botao_proximo.setFont(new Font("Tahoma", Font.PLAIN, 13));
 		botao_proximo.setBounds(222, 197, 117, 35);
 		contentPane.add(botao_proximo);
+	}
+	public String getNomeProduto() {
+		return nomeProduto;
+	}
+
+	public void setNomeProduto(String nomeProduto) {
+		this.nomeProduto = nomeProduto;
 	}
 	
 }
