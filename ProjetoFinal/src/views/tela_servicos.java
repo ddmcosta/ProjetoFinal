@@ -74,8 +74,7 @@ public class tela_servicos extends JFrame {
 		box_limpeza.setHorizontalAlignment(SwingConstants.LEFT);
 		box_limpeza.setBounds(23, 98, 155, 23);
 		contentPane.add(box_limpeza);
-		//"Limpeza R$:150,00"
-		
+		 
 		JCheckBox box_troca_de_hd = new JCheckBox(servico.getSERVICO()[3] +" R$ " + servico.getVALORES()[3]);
 		box_troca_de_hd.setHorizontalAlignment(SwingConstants.LEFT);
 		box_troca_de_hd.setBounds(23, 141, 171, 23);
@@ -106,16 +105,17 @@ public class tela_servicos extends JFrame {
 		JButton botao_proximo = new JButton("Próximo");
 		botao_proximo.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				if(box_limpeza.isSelected()) {
-					//box_limpeza.getText().toString();
-				}
 				
-				System.out.println();
 				tela_pedido telaPedido = new tela_pedido();
+				
+				telaPedido.upadateValues(box_limpeza.getText().toString());
+			 
 				dispose();
+				
 				telaPedido.setVisible(true);
 			}
-		});
+		}
+		);
 		botao_proximo.setFont(new Font("Tahoma", Font.PLAIN, 13));
 		botao_proximo.setBounds(222, 197, 117, 35);
 		contentPane.add(botao_proximo);

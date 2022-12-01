@@ -4,7 +4,12 @@ import java.awt.EventQueue;
 
 import javax.swing.JFrame;
 import javax.swing.JPanel;
+import javax.swing.JRadioButton;
 import javax.swing.border.EmptyBorder;
+
+import Modelo.Produto;
+import Modelo.Servico;
+
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.SwingConstants;
@@ -51,6 +56,7 @@ public class tela_pedido extends JFrame {
 		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 		setBounds(100, 100, 450, 300);
 		contentPane = new JPanel();
+		
 
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
@@ -118,8 +124,21 @@ public class tela_pedido extends JFrame {
 		JLabel lblNewLabel_2 = new JLabel("Serviços:");
 		lblNewLabel_2.setFont(new Font("Tahoma", Font.PLAIN, 14));
 		lblNewLabel_2.setBounds(10, 83, 76, 25);
-		contentPane.add(lblNewLabel_2);
+		contentPane.add(lblNewLabel_2);}
 		
+        public void upadateValues(String value) {
+		
+		JLabel lblNewLabel_2 = new JLabel();
+		
+		
+		lblNewLabel_2.setFont(new Font("Tahoma",Font.PLAIN,14));
+		lblNewLabel_2.setBounds(23, 98, 155, 23);
+		contentPane.add(lblNewLabel_2  );
+		lblNewLabel_2.setText(value);
+	
+		
+
+	{
 		JPanel panel = new JPanel();
 		panel.setBounds(74, 47, 350, 25);
 		contentPane.add(panel);
@@ -128,4 +147,10 @@ public class tela_pedido extends JFrame {
 		panel_1.setBounds(74, 83, 350, 25);
 		contentPane.add(panel_1);
 	}
-}
+	
+		
+	}
+	}
+		
+
+

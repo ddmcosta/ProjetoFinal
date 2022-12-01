@@ -94,24 +94,11 @@ public class tela_produto extends JFrame {
 		botao_proximo.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				
-			
-				
-			Produto produto = new Produto();
-			
-			produto.setNome(tipo_do_produto.getText());
-			
-			
-			produto.setMarca(campo_marca_do_produto.getText());
-		
-			
-			produto.setModelo(campo_modelo_do_produto.getText());
-			
-			
-			
-				
 				tela_servicos telaServicos = new tela_servicos();
 				dispose();
 				telaServicos.setVisible(true);
+				
+			
 			}
 		});
 		botao_proximo.setFont(new Font("Tahoma", Font.PLAIN, 14));
